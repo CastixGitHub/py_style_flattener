@@ -1,8 +1,11 @@
 # Py Style Flattener
 
 ## Introduction
+
 This module is useful to move all the css from style tags to inline style attribute
+
 Makes use of pyquery and regex (due to stdlib's re module not supporting recursion)
+
 Keeps all the @font-face but removes everything else
 
 ### Installation
@@ -40,6 +43,7 @@ Or as a python module
 
 ### build & release
 ```bash
-pip install build
+pip install build twine
 python -m build
+python -m twine upload --config-file .pypirc dist/*
 ```

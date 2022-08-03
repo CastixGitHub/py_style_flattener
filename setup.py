@@ -1,4 +1,4 @@
-from setuptools import setup, find_packages
+from setuptools import setup
 from os import path
 
 
@@ -17,7 +17,7 @@ extras_require = {'testing': ['pytest', 'pytest-cov', 'pytest-randomly', 'flake8
 
 setup(
     name='py_style_flattener',
-    version='0.0.1',
+    version='0.0.3',
     description='Manipulate HTML by moving <style> to style=".',
     long_description=long_description,
     long_description_content_type='text/markdown',

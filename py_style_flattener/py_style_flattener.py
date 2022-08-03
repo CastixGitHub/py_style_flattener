@@ -31,6 +31,7 @@ def main() -> int:
     args.output.close()
     return 0
 
+
 def using_files(_in, _out) -> None:
     _out.write(using_strings(_in.read()))
 
@@ -39,7 +40,7 @@ def using_strings(_in) -> str:
     d = pq(_in)
     for style in d('style'):
         # TODO: handle src attr
-    
+
         # stripping out commments
         style.text = re.sub(r'\/\*.*\/', '', style.text, flags=re.S)
 
@@ -61,7 +62,7 @@ def using_strings(_in) -> str:
 
         # now manipulate using pyquery
         style.clear()
-    
+
         for selector, new_style in css.items():
             if any([pseudo in selector for pseudo in (':after', ':before', '::selection', '::-moz-selection')]):
                 print('pseudo elements unsupported', file=stderr)
@@ -104,8 +105,15 @@ def extract_css(string: str) -> dict:
         for ___match in prop_value.findall(string)
     }
 
+
 def generate_css(new_style: dict) -> str:
     return '; '.join([
         ': '.join(list(new_style.items())[i])
         for i in range(len(new_style))
     ]) + ';'
+
+
+__all__ = (
+    'using_strings',
+    'using_files',
+)
